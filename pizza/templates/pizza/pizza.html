@@ -1,5 +1,5 @@
 {% extends "pizza/base.html" %}
-
+{% load static %}
 
 {% block content %}
 <p>Type of Pizza: {{pizza}}</p>
@@ -14,6 +14,11 @@
     {% empty %}
     <li>There are no listed toppings for this pizza.</li>
     {% endfor %}
+    {% if pizza.id == 1 %}
+    <img src="{% static 'pizza/images/hawaiian2.jpg'%}">
+    {% else %}
+    <img src="{% static 'pizza/images/meatlovers.jpg'%}">
+    {% endif %}
 </ul>
 
 
