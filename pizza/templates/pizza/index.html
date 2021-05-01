@@ -1,8 +1,9 @@
 {% extends "pizza/base.html" %}
-
+{% load static %}
 
 {% block content %}
 <p>Welcome to the Savannah's Pizzeria!</p>
 
 <p>Please navigate to the link above to see all of our pizzas!</p>
+<img src="{% static 'pizza/images/pizzeria.jpg'%}">
 {% endblock content %}
