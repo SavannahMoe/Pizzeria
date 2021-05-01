@@ -22,6 +22,6 @@
     <img src="{% static 'pizza/images/meatlovers.jpg'%}">
     {% endif %}
 </ul>
-
+<a href="{% url 'pizza:comments' pizza.id %}">Leave a Comment</a>
 
 {% endblock content %}

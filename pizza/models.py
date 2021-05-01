@@ -20,3 +20,9 @@ class Topping(models.Model):
     def __str__(self):
         return f"{self.name[:50]}..."
         
+class Comments(models.Model):
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
+    comment = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.comment

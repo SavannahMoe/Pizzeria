@@ -1,0 +1,13 @@
+{% block content %}
+
+<p>{{pizza}}</p>
+<p>Leave a Comment:</p>
+
+<form action="{%url 'pizza:comments' pizza.id %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button name="submit">Submit Comment</button>
+</form>
+
+{% endblock content %}
