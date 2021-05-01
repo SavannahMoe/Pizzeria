@@ -8,7 +8,7 @@ from pizza.models import Pizza, Topping
 
 pizzas = Pizza.objects.all()
 
-p = Pizza.objects.get(id=1)
+p = Pizza.objects.get(id=1) 
 print(p)
 toppings = p.topping_set.all()
 for topping in toppings:
