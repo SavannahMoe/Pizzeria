@@ -3,7 +3,7 @@
 <p>{{pizza}}</p>
 <p>Leave a Comment:</p>
 
-<form action="{%url 'pizza:comments' pizza.id %}" method='post'>
+<form action="{%url 'pizza:new_comment' pizza.id %}" method='post'>
     {% csrf_token %}
     {{ form.as_p }}
 

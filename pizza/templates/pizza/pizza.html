@@ -27,11 +27,14 @@
     {% for comment in comments %}
     <li>
         <p>{{comment.comment}}</p>
+        <p>
+            <a href="{% url 'pizza:edit_comment' comment_id %}">Edit Comment</a>
+        </p>
     </li>
     {% empty %}
     <li>No customer comments</li>
     {% endfor %}
 </ul>
-<a href="{% url 'pizza:comments' pizza.id %}">Leave a Comment</a>
+<a href="{% url 'pizza:new_comment' pizza.id %}">Leave a Comment</a>
 
 {% endblock content %}

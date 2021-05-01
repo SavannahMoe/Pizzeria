@@ -1,0 +1,15 @@
+{% extends ""}
+{% block content %}
+
+
+<p> <a href="{% url 'pizza:pizza' pizza.id %}">{{ pizza }}</a></p>
+<p> Edit Comment:</p>
+
+<form action="{% url 'pizza:edit_comment' comment.id %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }} #load
+
+    <button name="submit">Save Changes</button>
+</form>
+
+{% endblock content %}

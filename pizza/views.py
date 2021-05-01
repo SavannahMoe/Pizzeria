@@ -19,17 +19,13 @@ def pizzas(request):
 def pizza(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     toppings = pizza.topping_set.all()
-    #comments = pizza.comment_set.all()
     
     context = {'pizza':pizza, 'toppings':toppings}
     return render(request, 'pizza/pizza.html', context)
 
 
-def comments(request, pizza_id):
+def new_comment(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
-   
-    new_comment = None
-   
     if request.method != 'POST':
         form = CommentForm()
     else:
@@ -39,11 +35,29 @@ def comments(request, pizza_id):
             new_comment = form.save(commit=False)
             new_comment.pizza = pizza
             new_comment.save()
+            form.save()
 
-            return redirect('pizza:pizza',pizza_id=pizza.id)
+             return redirect('pizza:pizza',pizza_id=pizza.id)
 
-    context = {'form':form, 'pizza':pizza, 'new_comment':new_comment}
-    return render(request, 'pizza/comments.html', context)
+    context = {'form':form, 'pizza':pizza}
+    return render(request, 'pizza/new_comment.html', context)
+
+
+def edit_comment(request, comment_id):
+    comment = Comments.objects.get(id=comment_id)
+    pizza = comment.topic
+
+    if request.method != 'POST':
+        form.CommentForm(instance=comment)
+    else:
+        form = CommentForm(instance=comment, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('pizza:pizza', pizza_id=pizza.id)
+    
+    context = {'comment':comment, 'form':form, 'pizza':pizza}
+    return render(request, 'pizza/edit_comment.html', context)
+
 
     
 

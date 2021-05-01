@@ -8,15 +8,18 @@ from pizza.models import Pizza, Topping, Comments
 
 pizzas = Pizza.objects.all()
 
-pizza = Pizza.objects.get(id=1) 
-print(pizza)
-toppings = pizza.topping_set.all()
+
+p = Pizza.objects.get(id=1) 
+print(p)
+toppings = p.topping_set.all()
 for topping in toppings:
     print(topping)
 
-comments = pizza.comments_set.all()
+
+comments = p.comments_set.all()
 for comment in comments:
-    print(f"CommentID: {comment.pizza} Comment:{comment.comment} ")
+    print(comment)
+
 
 '''
 for p in pizzas:
