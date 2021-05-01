@@ -19,6 +19,7 @@ def pizzas(request):
 def pizza(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     toppings = pizza.topping_set.all()
+    comments = pizza.comment_set.all()
     
     context = {'pizza':pizza, 'toppings':toppings}
     return render(request, 'pizza/pizza.html', context)
@@ -48,7 +49,7 @@ def edit_comment(request, comment_id):
     pizza = comment.topic
 
     if request.method != 'POST':
-        form.CommentForm(instance=comment)
+        form = CommentForm(instance=comment)
     else:
         form = CommentForm(instance=comment, data=request.POST)
         if form.is_valid():

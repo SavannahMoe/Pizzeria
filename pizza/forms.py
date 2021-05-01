@@ -6,3 +6,4 @@ class CommentForm(forms.ModelForm):
         model = Comments
         fields = ['comment']
         label={"Comment:":''}
+        widgets = {'comment':forms.Textarea(attrs={'cols':80})}

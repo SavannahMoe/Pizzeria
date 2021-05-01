@@ -26,7 +26,7 @@
 <ul>
     {% for comment in comments %}
     <li>
-        <p>{{comment.comment|linebreaks}}</p>
+        <p>{{comment|linebreaks}}</p>
         <p>
             <a href="{% url 'pizza:edit_comment' comment_id %}">Edit Comment</a>
         </p>
