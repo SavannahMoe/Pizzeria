@@ -4,15 +4,19 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", 'Pizzeria.settings')
 import django
 django.setup()
 
-from pizza.models import Pizza, Topping
+from pizza.models import Pizza, Topping, Comments
 
 pizzas = Pizza.objects.all()
 
-p = Pizza.objects.get(id=1) 
-print(p)
-toppings = p.topping_set.all()
+pizza = Pizza.objects.get(id=1) 
+print(pizza)
+toppings = pizza.topping_set.all()
 for topping in toppings:
     print(topping)
+
+comments = pizza.comments_set.all()
+for comment in comments:
+    print(f"CommentID: {comment.pizza} Comment:{comment.comment} ")
 
 '''
 for p in pizzas:

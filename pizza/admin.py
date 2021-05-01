@@ -6,3 +6,6 @@ admin.site.register(Pizza)
 
 from .models import Topping
 admin.site.register(Topping)
+
+from .models import Comments
+admin.site.register(Comments)

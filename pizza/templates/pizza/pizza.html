@@ -22,6 +22,16 @@
     <img src="{% static 'pizza/images/meatlovers.jpg'%}">
     {% endif %}
 </ul>
+<p>Customer Comments:</p>
+<ul>
+    {% for comment in comments %}
+    <li>
+        <p>{{comment.comment}}</p>
+    </li>
+    {% empty %}
+    <li>No customer comments</li>
+    {% endfor %}
+</ul>
 <a href="{% url 'pizza:comments' pizza.id %}">Leave a Comment</a>
 
 {% endblock content %}
