@@ -2,7 +2,9 @@
 {% load static %}
 
 {% block content %}
-<p>Type of Pizza: {{pizza}}</p>
+<p>{{pizza}} Pizza</p>
+
+<p>Toppings included on {{pizza}} pizza:</p>
 
 <ul>
     {%for topping in toppings %}
