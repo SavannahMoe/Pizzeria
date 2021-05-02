@@ -21,6 +21,19 @@ for comment in comments:
     print(comment)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 '''
 for p in pizzas:
     print(f"Pizza ID: {p.id} Pizza: {p}") 
