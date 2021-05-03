@@ -28,7 +28,7 @@
     <li>
         <p>{{comment|linebreaks}}</p>
         <p>
-            <a href="{% url 'pizza:edit_comment' comment_id %}">Edit Comment</a>
+            <a href="{% url 'pizza:edit_comment' comment.id %}">Edit Comment</a>
         </p>
     </li>
     {% empty %}
